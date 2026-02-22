@@ -1,0 +1,45 @@
+# Deploy a Production Ready Kubernetes Cluster
+
+![Kubernetes Logo](https://raw.githubusercontent.com/kubernetes-sigs/kubespray/master/docs/img/kubernetes-logo.png)
+
+If you have questions, check the documentation at [kubespray.io](https://kubespray.io) and join us on the [kubernetes slack](https://kubernetes.slack.com), channel **\#kubespray**.
+You can get your invite [here](http://slack.k8s.io/)
+
+## External requirements
+
+In order to use this collection, ensure you have the following requirements installed:
+
+{% if prerequisites %}
+- {{ prerequisites | join('\n- ') }}
+{% else %}
+No prerequisites defined.
+{% endif %}
+
+## Included content
+
+### playbooks:
+
+- cluster.yml: Deploy a Kubernetes cluster
+- upgrade_cluster.yml: Upgrade an existing Kubernetes cluster
+- scale.yml: Scale an existing Kubernetes cluster
+- reset.yml: Reset an existing Kubernetes cluster
+- facts.yml: Gather facts about an existing Kubernetes cluster  
+
+## Using this collection
+
+Before using the Docker community collection, you need to install the collection with the `ansible-galaxy` CLI:
+
+    ansible-galaxy collection install { galaxy_target }
+
+You can also include it in a `requirements.yml` file and install it via `ansible-galaxy collection install -r requirements.yml` using the format:
+
+```yaml
+collections:
+- name: { galaxy_target }
+```
+
+See [Ansible Using collections](https://docs.ansible.com/ansible/latest/user_guide/collections_using.html) for more details.
+
+## Contributing to this collection
+
+All code contribution is managed via [kubespray](https://github.com/kubernetes-sigs/kubespray.git).

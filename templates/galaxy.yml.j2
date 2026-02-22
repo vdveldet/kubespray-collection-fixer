@@ -1,0 +1,59 @@
+namespace: {namespace}
+name: {name}
+version: '{version}'
+description: Deploy a Production Ready Kubernetes Cluster
+readme: README.md
+authors:
+  - vdveldet <vdvelde.t@gmail.com>
+license_file: "LICENSE"
+tags:
+  - kubernetes_cluster
+  - infrastructure
+  - kubespray
+  - aws
+  - gce
+  - bare_metal
+  - high_availability
+dependencies:
+  ansible.utils: '>=2.5.0'
+  community.crypto: '>=2.22.3'
+  community.general: '>=7.0.0'
+  ansible.netcommon: '>=5.3.0'
+  ansible.posix: '>=1.5.4'
+  community.docker: '>=3.11.0'
+  kubernetes.core: '>=2.4.2'
+repository: "https://github.com/kubernetes-sigs/kubespray/"
+documentation: "https://kubespray.io/"
+homepage: "https://kubespray.io/"
+issues: "https://github.com/kubernetes-sigs/kubespray/issues"
+build_ignore:
+  - RELEASE.md
+  - galaxy.yml
+  - CNAME
+  - CONTRIBUTING.md
+  - Dockerfile
+  - OWNERS
+  - OWNERS_ALIASES
+  - SECURITY_CONTACTS
+  - Vagrantfile
+  - _config.yml
+  - ansible.cfg
+  - cluster.yml
+  - code-of-conduct.md
+  - index.html
+  - pipeline.Dockerfile
+  - recover-control-plane.yml
+  - remove-node.yml
+  - remove_node.yml
+  - reset.yml
+  - upgrade-cluster.yml
+  - upgrade_cluster.yml
+  - scale.yml
+  - requirements.txt
+  - inventory
+  - logo
+  - scripts
+  - test-infra
+  - tests
+  - contrib
+  - extra_playbooks

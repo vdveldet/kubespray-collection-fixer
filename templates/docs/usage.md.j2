@@ -1,0 +1,72 @@
+# Using this colletion 
+
+This collection will host various playbooks that can be used to deploy and manage Kubernetes clusters using the Kubespray framework.
+It is the intention to use these playsbooks from within your own playbooks.
+
+Esure you have the proper inventory setup before using these playbooks. Use the sample inventory [here](https://github.com/kubernetes-sigs/kubespray/tree/master/inventory/sample) as a reference
+
+
+## cluster.yml
+
+To deploy a Kubernetes cluster using this collection, you can use the following playbook:
+
+```yaml
+- name: Install Kubernetes
+  ansible.builtin.import_playbook: {{ galaxy_target }}.cluster
+```
+
+As you can see from the example above, you can perform any additional playbook before the kubespray intallation.
+
+
+## upgrade_cluster.yml
+
+To upgrade an existing Kubernetes cluster using this collection, you can use the following playbook:
+
+```yaml
+- name: Upgrade Kubernetes Cluster
+  ansible.builtin.import_playbook: {{ galaxy_target }}.upgrade_cluster
+```
+
+## scale.yml
+
+To scale an existing Kubernetes cluster using this collection, you can use the following playbook:
+
+```yaml
+- name: Scale Kubernetes Cluster
+  ansible.builtin.import_playbook: {{ galaxy_target }}.scale
+```
+
+## reset.yml
+
+To reset an existing Kubernetes cluster using this collection, you can use the following playbook:
+
+```yaml
+- name: Reset Kubernetes Cluster
+  ansible.builtin.import_playbook: {{ galaxy_target }}.reset
+```
+
+## facts.yml
+
+To gather facts about an existing Kubernetes cluster using this collection, you can use the following playbook:
+
+```yaml
+- name: Gather Kubernetes Cluster Facts
+  ansible.builtin.import_playbook: {{ galaxy_target }}.facts
+```
+
+## As part of a larger play.
+
+The Installation playbook can also be used as part of a larger playbook, for example to perform some pre-checks before the installation or to perform some post-installation tasks after the installation.
+
+```yaml
+
+- name: Install Kubespray
+  hosts: k8s_cluster
+  tasks:
+  - name: Ping the hosts for connectivity
+    ansible.builtin.ping:
+    ignore_unreachable: true
+
+- name: Install Kubernetes
+  ansible.builtin.import_playbook: {{ galaxy_target }}.cluster
+```
