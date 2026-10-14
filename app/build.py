@@ -25,7 +25,7 @@ if missing_envs:
 VERSION = os.getenv("KUBESPRAY_VERSION")
 BUILD_VERSION = f"v{VERSION}"
 REPO_URL = os.getenv("KUBESPRAY_REPO", "https://github.com/kubernetes-sigs/kubespray.git")
-GALAXY_TARGET = os.getenv("GALAXY_TARGET", "kubernetes_sigs_kubespray")
+GALAXY_TARGET = os.getenv("GALAXY_TARGET", "kubernetes_sigs.kubespray")
 
 DATA_DIR = Path(os.getenv("DATA_DIR", "/data")).resolve()
 build_dir = DATA_DIR / GALAXY_TARGET
