@@ -9,7 +9,7 @@ import sys
 
 TEMPLATES_DIR = os.path.join(os.path.dirname(__file__), "templates")
 GALAXY_TEMPLATE_PATH = os.path.join(TEMPLATES_DIR, "galaxy.yml.j2")
-GALAXY_TARGET = os.getenv("GALAXY_TARGET", "kubernetes_sigs_kubespray")
+GALAXY_TARGET = os.getenv("GALAXY_TARGET", "kubernetes_sigs.kubespray")
 
 
 def load_template(path):
@@ -20,9 +20,12 @@ def load_template(path):
 def split_galaxy_target(target):
     dash_idx = target.rfind("-")
     underscore_idx = target.rfind("_")
-    split_idx = max(dash_idx, underscore_idx)
+    dot_idx = target.rfind(".")
+    split_idx = max(dash_idx, underscore_idx, dot_idx)
     if split_idx <= 0 or split_idx == len(target) - 1:
-        raise ValueError("GALAXY_TARGET must contain '-' or '_' separating namespace and name")
+        raise ValueError(
+            "GALAXY_TARGET must contain '.', '-' or '_' separating namespace and name"
+        )
     return target[:split_idx], target[split_idx + 1:]
 
 def get_galaxy_yml_content(version):

@@ -28,3 +28,13 @@ docker run --rm -t \
 ## License
 
 Apache License 2.0
+
+export GALAXY_URL="https://galaxy.ansible.com/api/"
+export GALAXY_TOKEN=""
+export KUBESPRAY_VERSION=""
+
+docker run --rm -t \
+    -e GALAXY_URL="${GALAXY_URL}" \
+    -e GALAXY_TOKEN="${GALAXY_TOKEN}" \
+    -e KUBESPRAY_VERSION="${KUBESPRAY_VERSION}" \
+    vdveldet/kubespray-collection-fixer:latest
