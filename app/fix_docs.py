@@ -215,7 +215,8 @@ def main():
     # Define context for template rendering
     context = {
         'prerequisites': prerequisites,
-        'galaxy_target': os.getenv("GALAXY_TARGET", "kubernetes_sigs_kubespray"),
+        'galaxy_target': os.getenv("GALAXY_TARGET", "kubernetes_sigs.kubespray"),
+        'version': os.getenv("KUBESPRAY_VERSION", "latest")
     }
     
     try:
